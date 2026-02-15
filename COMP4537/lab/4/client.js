@@ -1,4 +1,4 @@
-import { STRINGS } from "./lang/messages/en/strings.js";
+import { STRINGS } from "../../../lang/messages/en/strings.js";
 
 class UIHandler {
 	constructor() {
@@ -51,6 +51,9 @@ class RequestHandler {
 		);
 		xhttp.send();
 		xhttp.onreadystatechange = () => {
+			document.getElementById("server_response").innerHTML = `
+					<p>${STRINGS.serverResponse} ${this.status}</p>
+				`;
 			if (this.readyState == 4 && this.status == 200) {
 				document.getElementById("query_results").value =
 					this.responseText;
