@@ -4,7 +4,10 @@ class RequestHandler {
 			"INSERT INTO Patients (name, dateOfBirth) VALUES ('Sara Brown', '1901-01-01', 'John Smith', '1941-01-01', 'Tamera Dotson', '1999-01-01', 'Shawn Gilbert', '2002-01-01');";
 
 		const xhr = new XMLHttpRequest();
-		xhr.open("POST", "http://localhost:8080");
+		xhr.open(
+			"POST",
+			"https://comp4537-labs-production.up.railway.app/COMP4537/lab4/api/v1/sql/",
+		);
 		xhr.send("data=" + encodeURIComponent(data));
 		xhr.onload = () => {
 			let response = xhr.responseText;
