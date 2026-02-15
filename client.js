@@ -1,3 +1,28 @@
+import { STRINGS } from "./lang/messages/en/strings.js";
+
+class UIHandler {
+	constructor() {
+		this.populateUI();
+	}
+
+	populateUI() {
+		document.title = STRINGS.title;
+
+		const queryTextArea = document.getElementById("query");
+		queryTextArea.placeholder = STRINGS.query;
+
+		const postButton = document.getElementById("post");
+		postButton.innerText = STRINGS.postButton;
+		postButton.onclick = RequestHandler.POSTRequest;
+
+		const getButton = document.getElementById("get");
+		getButton.innerText = STRINGS.getButton;
+		getButton.onclick = RequestHandler.GETRequest;
+
+		document.getElementById("query_results").placeholder = STRINGS.result;
+	}
+}
+
 class RequestHandler {
 	static POSTRequest() {
 		const data =
@@ -14,8 +39,9 @@ class RequestHandler {
 			document.getElementById("request_result").innerText = response;
 		};
 	}
-	static GETRequest(query) {
+	static GETRequest() {
 		const xhttp = new XMLHttpRequest();
+		const query = document.getElementById("query").value
 
 		xhttp.open(
 			"GET",
@@ -32,3 +58,5 @@ class RequestHandler {
 		};
 	}
 }
+
+new UIHandler();

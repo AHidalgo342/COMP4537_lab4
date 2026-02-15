@@ -6,22 +6,12 @@
 	</head>
 	<body>
 		<div>
-			<button onclick="RequestHandler.POSTRequest()">
-				Send POST Request
-			</button>
-			<button
-				onclick="
-					RequestHandler.GETRequest(
-						document.getElementById('query').value,
-					)
-				"
-			>
-				Send GET Request
-			</button>
+			<button id="post"></button>
+			<button id="get"></button>
 		</div>
 		<div id="request_result"></div>
-		<textarea id="query" placeholder="Qeury to send to server"></textarea>
-		<textarea id="query_results" placeholder="Request Results"></textarea>
+		<textarea id="query"></textarea>
+		<textarea id="query_results"></textarea>
 	</body>
-	<script src="./client.js"></script>
+	<script type="module" src="./client.js"></script>
 </html>
