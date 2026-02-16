@@ -51,12 +51,12 @@ class RequestHandler {
 		);
 		xhttp.send();
 		xhttp.onreadystatechange = () => {
-			document.getElementById("server_response").innerHTML = `
-					<p>${STRINGS.serverResponse} ${this.status}</p>
+			if (xhttp.readyState == 4 && xhttp.status == 200) {
+				document.getElementById("server_response").innerHTML = `
+					<p>${STRINGS.serverResponse} ${xhttp.status}</p>
 				`;
-			if (this.readyState == 4 && this.status == 200) {
-				document.getElementById("query_results").value =
-					this.responseText;
+				document.getElementById("query_results").innerHTML =
+					xhttp.responseText;
 			}
 		};
 	}
