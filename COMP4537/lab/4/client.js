@@ -36,7 +36,7 @@ class RequestHandler {
 		xhr.send("data=" + encodeURIComponent(data));
 		xhr.onload = () => {
 			let response = xhr.responseText;
-			document.getElementById("request_result").innerText = response;
+			document.getElementById("request_result").innerHTML = response;
 		};
 	}
 	static GETRequest() {
