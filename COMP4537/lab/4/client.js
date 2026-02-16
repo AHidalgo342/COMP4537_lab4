@@ -45,7 +45,7 @@ class RequestHandler {
 
 		xhttp.open(
 			"GET",
-			"https://comp4537-labs-production.up.railway.app/COMP4537/lab4/api/v1/sql/?query=" +
+			"https://comp4537-labs-production.up.railway.app/COMP4537/lab4/api/v1/sql/" +
 				encodeURIComponent(query),
 			true,
 		);
